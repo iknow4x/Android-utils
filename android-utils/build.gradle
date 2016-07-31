@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 23
@@ -21,4 +22,19 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.google.guava:guava:19.0'
 }
+
+publish {
+    artifactId = 'android-utils-sdk'//模块名称
+    userOrg = rootProject.userOrg
+    groupId =   rootProject.groupId
+    uploadName = rootProject.uploadName //模块上传后所在的文件夹名称
+    publishVersion = rootProject.publishVersion//模块版本号
+    desc = rootProject.description//模块的描述
+    website = rootProject.website //模块的网站
+    licences = rootProject.licences //模块的licences
+}
+
+
+//./gradlew clean build bintrayUpload -PbintrayUser=iknow -PbintrayKey=96a9ceaa84a45bb64bbf263cf77ac06e808de9bb -PdryRun=false
