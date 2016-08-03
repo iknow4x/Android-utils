@@ -6,6 +6,6 @@ package iknow.android.utils.callback;
  * Email： who_know_me@163.com
  * Describe:
  */
-public interface MoreCallback extends SingleCallback {
-    void onMoreCallback();
+public interface MoreCallback<V,K> extends SingleCallback {
+    void onMoreCallback(V v,K k);
 }

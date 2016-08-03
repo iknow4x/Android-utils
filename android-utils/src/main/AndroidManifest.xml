@@ -2,7 +2,7 @@
     package="iknow.android.utils">
 
     <application
-        android:allowBackup="true">
+        android:allowBackup="false">
 
     </application>
 

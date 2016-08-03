@@ -1,5 +1,6 @@
 package iknow.android.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -16,9 +17,28 @@ import iknow.android.utils.callback.SingleCallback;
  * Describe:
  */
 public final class KeyboardUtil {
+
+    /**
+     * @param mContext
+     * @param v         The view that need to hide keyboard.
+     */
     public static void hideKeyboard(Context mContext, View v) {
         InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(v.getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+
+    /**
+     * Just need to enter a context
+     * @param context
+     */
+    public static void hideKeyboard(Activity context){
+        if(context == null || context.getCurrentFocus() == null)
+            return;
+
+        InputMethodManager im = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        if(im.isActive())
+            im.hideSoftInputFromWindow(context.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     /**
@@ -26,7 +46,7 @@ public final class KeyboardUtil {
      * @param view
      * @param cb
      */
-    public static void showKeyboardWithCallback(final View view, final SingleCallback cb){
+    public static void showKeyboardWithCallback(final View view, final SingleCallback<Object,Object> cb){
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 view.dispatchTouchEvent(MotionEvent.obtain(
@@ -37,7 +57,7 @@ public final class KeyboardUtil {
                         MotionEvent.ACTION_UP, 0, 0, 0));
 
                 if(cb != null)
-                    cb.onSingleCallback();
+                    cb.onSingleCallback(null,null);
             }
         }, 250);
     }

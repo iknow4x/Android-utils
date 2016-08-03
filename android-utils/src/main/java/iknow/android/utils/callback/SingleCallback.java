@@ -6,6 +6,6 @@ package iknow.android.utils.callback;
  * Email： who_know_me@163.com
  * Describe:
  */
-public interface SingleCallback {
-    void onSingleCallback();
+public interface SingleCallback<T,V> {
+    void onSingleCallback(T t,V v);
 }
