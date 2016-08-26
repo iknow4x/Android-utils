@@ -37,7 +37,7 @@ public final class DateUtil {
         return timeStr;
     }
 
-    public static String unitFormat(int i) {
+    private static String unitFormat(int i) {
         String retStr = null;
         if (i >= 0 && i < 10)
             retStr = "0" + Integer.toString(i);
