@@ -10,6 +10,8 @@ import android.content.Context;
  */
 public class BaseUtils {
 
+    private static final String ERROR_INIT = "Initialize BaseUtils with invoke init()";
+
     private static Context context;
 
     /**
@@ -18,13 +20,13 @@ public class BaseUtils {
      */
     public static void init(Context ctx){
         BaseUtils.context = ctx;
-
         //something to do...
-
-
     }
 
     public static Context getContext() {
+        if (context == null) {
+            throw new IllegalArgumentException(ERROR_INIT);
+        }
         return context;
     }
 }

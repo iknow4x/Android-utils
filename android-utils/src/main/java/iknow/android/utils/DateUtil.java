@@ -1,5 +1,11 @@
 package iknow.android.utils;
 
+import android.text.TextUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Author：J.Chou
  * Date：  2016.07.21 11:43.
@@ -35,6 +41,16 @@ public final class DateUtil {
             }
         }
         return timeStr;
+    }
+
+    public static String convertSecondsToFormat(long seconds,String format){
+
+        if(TextUtils.isEmpty(format))
+            return "";
+
+        Date date = new Date(seconds);
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.getDefault());
+        return sdf.format(date);
     }
 
     private static String unitFormat(int i) {
