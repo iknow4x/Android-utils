@@ -10,7 +10,7 @@ buildscript {
     }
 }
 
-def libVersion = "1.1.0"
+def libVersion = "1.1.1"
 
 ext {
     userOrg = "iknow"          //bintray.com用户名
