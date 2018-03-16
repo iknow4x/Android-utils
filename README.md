@@ -8,7 +8,7 @@ compile 'com.github.iknow4:android-utils-sdk:1.1.2'
 
 ## License
 
-Copyright 2016 smartbetter
+Copyright 2016 iknow4
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
