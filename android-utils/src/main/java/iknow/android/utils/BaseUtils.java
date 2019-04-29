@@ -12,12 +12,12 @@ import java.lang.ref.WeakReference;
  */
 public class BaseUtils {
 
-    private static final String ERROR_INIT = "Initialize BaseUtils with invoke init()";
+    private static final String ERROR_INIT = "Please initialize BaseUtils with invoke init() in Application onCreate()";
 
     private static WeakReference<Context> mWeakReferenceContext;
 
     /**
-     * init in Application
+     * init in Application onCreate()
      */
     public static void init(Context ctx){
         mWeakReferenceContext = new WeakReference<>(ctx);
@@ -25,7 +25,7 @@ public class BaseUtils {
     }
 
     public static Context getContext() {
-        if (mWeakReferenceContext == null) {
+        if (mWeakReferenceContext == null || mWeakReferenceContext.get() == null) {
             throw new IllegalArgumentException(ERROR_INIT);
         }
         return mWeakReferenceContext.get().getApplicationContext();

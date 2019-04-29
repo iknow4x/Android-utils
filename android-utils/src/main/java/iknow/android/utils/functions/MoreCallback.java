@@ -1,4 +1,4 @@
-package iknow.android.utils.callback;
+package iknow.android.utils.functions;
 
 /**
  * Author：J.Chou

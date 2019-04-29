@@ -1,8 +1,9 @@
-package iknow.android.utils;
+package iknow.android.utils.network;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import iknow.android.utils.BaseUtils;
 
 /**
  * Author：J.Chou
@@ -10,19 +11,16 @@ import android.net.NetworkInfo;
  * Email： who_know_me@163.com
  * Describe:
  */
-public final class NetworkUtil {
+public class NetworkUtil {
 
     public static NetworkInfo getNetworkInfo() {
         ConnectivityManager cm = (ConnectivityManager) BaseUtils.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        return cm.getActiveNetworkInfo();
+        return cm != null ? cm.getActiveNetworkInfo() : null;
     }
 
     public static boolean isNetworkAvailable() {
         NetworkInfo netInfo = getNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
-        }
-        return false;
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
     public static boolean isConnectedWifi() {

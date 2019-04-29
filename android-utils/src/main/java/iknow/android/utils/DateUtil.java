@@ -12,7 +12,7 @@ import java.util.Locale;
  * Email： who_know_me@163.com
  * Describe:
  */
-public final class DateUtil {
+public class DateUtil {
 
     /**
      * second to HH:MM:ss

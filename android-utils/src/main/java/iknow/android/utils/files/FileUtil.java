@@ -1,4 +1,4 @@
-package iknow.android.utils;
+package iknow.android.utils.files;
 
 import android.text.TextUtils;
 
@@ -10,27 +10,22 @@ import java.io.File;
  * Email： who_know_me@163.com
  * Describe:
  */
-public final class FileUtil {
-
-
+public class FileUtil {
     /**
      *
-     * @param filePath
-     * @return
+     * @param filePath filePath
+     * @return boolean
      */
     public static boolean isFileExist(String filePath) {
-        if (TextUtils.isEmpty(filePath)) {
-            return false;
-        }
-
+        if (TextUtils.isEmpty(filePath)) return false;
         File file = new File(filePath);
-        return (file.exists() && file.isFile());
+        return (file.exists() && file.isFile() && file.length() > 0);
     }
 
     /**
      *
-     * @param path
-     * @return
+     * @param path path
+     * @return boolean
      */
     public static boolean deleteFile(String path) {
         if (TextUtils.isEmpty(path)) {
@@ -58,10 +53,7 @@ public final class FileUtil {
     }
 
     public static long getFileSize(String path) {
-        if (TextUtils.isEmpty(path)) {
-            return -1;
-        }
-
+        if (!isFileExist(path)) return -1;
         File file = new File(path);
         return (file.exists() && file.isFile() ? file.length() : -1);
     }

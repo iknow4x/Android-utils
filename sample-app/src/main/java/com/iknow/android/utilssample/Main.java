@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.iknow.android.utils.R;
+import iknow.android.utils.functions.Function;
 
 /**
  * Author：J.Chou
@@ -18,5 +19,21 @@ public class Main extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
+        testFun(new Function<String, String>() {
+            @Override public String apply(String s) throws Exception {
+
+                return null;
+            }
+        });
+    }
+
+    private String testFun(Function<String, String> function) {
+        try {
+            return function.apply("");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "";
     }
 }

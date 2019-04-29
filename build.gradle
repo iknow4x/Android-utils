@@ -1,16 +1,17 @@
 
 buildscript {
     repositories {
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
-        classpath 'com.novoda:bintray-release:0.3.4'
+        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath 'com.novoda:bintray-release:0.8.0'
 
     }
 }
 
-def libVersion = "1.1.2"
+def libVersion = "2.0.0"
 
 ext {
     userOrg = "iknow"          //bintray.com用户名
@@ -24,6 +25,7 @@ ext {
 
 allprojects {
     repositories {
+        google()
         jcenter()
     }
 }

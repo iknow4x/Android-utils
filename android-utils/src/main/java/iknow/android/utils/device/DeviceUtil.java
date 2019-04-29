@@ -1,9 +1,10 @@
-package iknow.android.utils;
+package iknow.android.utils.device;
 
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
+import iknow.android.utils.BaseUtils;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  * Email： who_know_me@163.com
  * Describe:
  */
-public final class DeviceUtil {
+public class DeviceUtil {
 
     public static int getDeviceWidth() {
         return BaseUtils.getContext().getResources().getDisplayMetrics().widthPixels;
