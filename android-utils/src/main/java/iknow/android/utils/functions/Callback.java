@@ -1,13 +1,14 @@
 package iknow.android.utils.functions;
 
 /**
- * Author：J.Chou
- * Date：  2016.07.20 19:02.
- * Email： who_know_me@163.com
- * Describe:
+ * author : J.Chou
+ * github : https://github.com/iknow4
+ * e-mail : who_know_me@163.com
+ * time   : 2019/04/29 17:20
+ * version: 1.0
+ * description:
  */
 public interface Callback<T, V> {
-  void success(T t);
-
-  void failure(V v);
+  void onSuccess(T t);
+  void onFailure(V v);
 }

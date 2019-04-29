@@ -3,7 +3,7 @@ package iknow.android.utils.network;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import iknow.android.utils.BaseUtils;
+import iknow.android.UtilEngine;
 
 /**
  * Author：J.Chou
@@ -14,7 +14,7 @@ import iknow.android.utils.BaseUtils;
 public class NetworkUtil {
 
     public static NetworkInfo getNetworkInfo() {
-        ConnectivityManager cm = (ConnectivityManager) BaseUtils.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) UtilEngine.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm != null ? cm.getActiveNetworkInfo() : null;
     }
 

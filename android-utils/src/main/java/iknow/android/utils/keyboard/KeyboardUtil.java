@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import iknow.android.utils.functions.SingleCallback;
+import iknow.android.utils.functions.Function;
 
 /**
  * Author：J.Chou
@@ -45,7 +45,7 @@ public  class KeyboardUtil {
      * @param view View
      * @param cb cb
      */
-    public static void showKeyboardWithCallback(final View view, final SingleCallback<Object,Object> cb){
+    public static void showKeyboardWithCallback(final View view, final Function<Object,Object> cb){
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 view.dispatchTouchEvent(MotionEvent.obtain(
@@ -55,8 +55,13 @@ public  class KeyboardUtil {
                         SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
                         MotionEvent.ACTION_UP, 0, 0, 0));
 
-                if(cb != null)
-                    cb.onSingleCallback(null,null);
+                if(cb != null) {
+                    try {
+                        cb.apply(null);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }, 250);
     }

@@ -1,6 +1,7 @@
 package iknow.android.utils;
 
 import android.util.DisplayMetrics;
+import iknow.android.UtilEngine;
 
 /**
  * Created by choujason on 7/31/16.
@@ -11,7 +12,7 @@ public class UnitConverter {
 
     public static DisplayMetrics getDisplayMetrics(){
 
-        return BaseUtils.getContext().getResources().getDisplayMetrics();
+        return UtilEngine.getContext().getResources().getDisplayMetrics();
     }
 
     public static float dpToPx(float dp) {

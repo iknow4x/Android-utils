@@ -10,6 +10,7 @@ import java.io.File;
  * Email： who_know_me@163.com
  * Describe:
  */
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class FileUtil {
     /**
      *

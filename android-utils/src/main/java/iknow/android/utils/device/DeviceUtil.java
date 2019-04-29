@@ -4,7 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
-import iknow.android.utils.BaseUtils;
+import iknow.android.UtilEngine;
 import java.util.List;
 
 /**
@@ -16,16 +16,16 @@ import java.util.List;
 public class DeviceUtil {
 
     public static int getDeviceWidth() {
-        return BaseUtils.getContext().getResources().getDisplayMetrics().widthPixels;
+        return UtilEngine.getContext().getResources().getDisplayMetrics().widthPixels;
     }
 
     public static int getDeviceHeight(){
-        return BaseUtils.getContext().getResources().getDisplayMetrics().heightPixels;
+        return UtilEngine.getContext().getResources().getDisplayMetrics().heightPixels;
     }
 
     public static boolean hasAppInstalled(String pkgName) {
         try {
-            BaseUtils.getContext().getPackageManager().getPackageInfo(pkgName, PackageManager.PERMISSION_GRANTED);
+            UtilEngine.getContext().getPackageManager().getPackageInfo(pkgName, PackageManager.PERMISSION_GRANTED);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;
@@ -33,10 +33,10 @@ public class DeviceUtil {
     }
 
     public static boolean isAppRunInBackground() {
-        ActivityManager activityManager = (ActivityManager) BaseUtils.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager activityManager = (ActivityManager) UtilEngine.getContext().getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
         for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
-            if (appProcess.processName.equals(BaseUtils.getContext().getPackageName())) {
+            if (appProcess.processName.equals(UtilEngine.getContext().getPackageName())) {
                 // return true -> Run in background
                 // return false - > Run in foreground
                 return appProcess.importance != ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
